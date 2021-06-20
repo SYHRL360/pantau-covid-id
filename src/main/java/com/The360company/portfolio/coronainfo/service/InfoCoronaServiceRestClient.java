@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.The360company.portfolio.coronainfo.model.CoronaIndonesia;
+import com.The360company.portfolio.coronainfo.model.GlobalData;
 import com.The360company.portfolio.coronainfo.model.Provinsi;
 
 @Service
@@ -74,7 +75,26 @@ public class InfoCoronaServiceRestClient implements InfoCoronaService{
 		// get object CoronIndonesia from response
 		List<CoronaIndonesia> coronaIndonesia = responseEntity.getBody();
 		
+		
 		return coronaIndonesia;
+	}
+
+	@Override
+	public List<GlobalData> getGlobalData() {
+		
+		HttpEntity<String> entity = settingUserAgentContentType();
+	
+		String urlGlobalData = this.infoCoronaRestUrl + "/";
+		
+		// make REST call
+		ResponseEntity<List<GlobalData>> responseEntity = restTemplate.exchange(urlGlobalData, HttpMethod.GET, entity, new ParameterizedTypeReference<List<GlobalData>>() {});
+		
+		// get object Global from response
+		List<GlobalData> globalData = responseEntity.getBody();
+		
+		
+		
+		return globalData;
 	}
 
 }

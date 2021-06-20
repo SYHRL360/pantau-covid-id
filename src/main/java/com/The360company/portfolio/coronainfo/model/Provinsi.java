@@ -2,7 +2,6 @@ package com.The360company.portfolio.coronainfo.model;
 
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

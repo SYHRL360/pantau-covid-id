@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" id="home">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Info Corona ID</title>
+	
+	 <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+	
+</head>
+<body class="bg-dark">
+
+	<!-- Navbar -->
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark  rounded">
+	  <a class="navbar-brand page-scroll" href="#home">Pantau COVID-ID</a>
+
+		<!-- Button collapse -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarCollapseMenu"
+			aria-controls="navbarToggleExternalContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Right Navbar menu -->
+		<div class="collapse navbar-collapse" id="navbarCollapseMenu">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a href="#jumlahKasus"
+					class="nav-link page-scroll">Indonesia</a></li>
+				<li class="nav-item"><a href="#dataProvinsi"
+					class="nav-link page-scroll">Provinsi</a></li>
+				<li class="nav-item"><a href="#dataGlobal"
+					class="nav-link page-scroll">Global</a></li>
+			</ul>
+		</div>
+	  
+	</nav>
+	<!-- End Navbar -->			
+	
+	<!-- Container Content -->
+	<div class="container">
+		<div class="jumbotron bg-transparent text-white">
+			<div class="container">
+				<h1 class="display-4 text-center"
+					th:text="'Kasus COVID-19 '+${coronaIndonesia[0].name}"></h1>
+				<p class="text-center" th:text="${currentDateTime}"></p>
+			</div>
+		</div>
+		
+		<!-- Section Jumlah kasus -->
+		<section id="jumlahKasus">
+		
+			<div class="row">
+				<div class="col-xl-3 col-md-6">
+					<div class="card bg-danger text-white mb-4">
+						<div class="card-body">
+							<div class="row  align-items-center">
+								<div class="col mr-2">
+									<h5 class="card-title">Positif</h5>
+									<p class="card-text"
+										th:text="${coronaIndonesia[0].positif}+' Orang'"></p>
+								</div>
+								<div class="col-auto">
+									<i class="fas fa-plus fa-2x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-6">
+					<div class="card bg-warning text-white mb-4">
+						<div class="card-body">
+							<div class="row  align-items-center">
+								<div class="col mr-2">
+									<h5 class="card-title">Dirawat</h5>
+									<p class="card-text"
+										th:text="${coronaIndonesia[0].dirawat}+' Orang'"></p>
+								</div>
+								<div class="col-auto">
+									<i class="fas fa-hospital fa-2x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-6">
+					<div class="card bg-secondary text-white mb-4">
+						<div class="card-body">
+							<div class="row  align-items-center">
+								<div class="col mr-2">
+									<h5 class="card-title">Meninggal</h5>
+									<p class="card-text"
+										th:text="${coronaIndonesia[0].meninggal}+' Orang'"></p>
+								</div>
+								<div class="col-auto">
+									<i class="fas fa-praying-hands fa-2x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-3 col-md-6">
+					<div class="card bg-success text-white mb-4">
+						<div class="card-body">
+							<div class="row  align-items-center">
+								<div class="col mr-2">
+									<h5 class="card-title">Sembuh</h5>
+									<p class="card-text"
+										th:text="${coronaIndonesia[0].sembuh}+' Orang'"></p>
+								</div>
+								<div class="col-auto">
+									<i class="fas fa-heartbeat fa-2x"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+		<!-- End section jumlah kasus -->
+		
+	
+		<!-- Tabel Per Provinsi -->
+		<section id="dataProvinsi">
+			<div class="card mb-5 bg-dark text-white">
+				<div class="card-header">
+					<h5>Daftar Provinsi</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<table class="table table-bordered table-striped table-dark mb-0"
+							width="100%" cellspacing="0">
+							<tr>
+								<th>No.</th>
+								<th>Provinsi</th>
+								<th>Kasus Positif</th>
+								<th>Kasus Sembuh</th>
+								<th>Kasus Meninggal</th>
+							</tr>
+							<tr th:each="provinsi, i: ${listProvinsi}">
+								<td th:text="${i.count}" />
+								<td th:text="${provinsi.namaProvinsi}"></td>
+								<td th:text="${provinsi.kasusPositive}"></td>
+								<td th:text="${provinsi.kasusSembuh}"></td>
+								<td th:text="${provinsi.kasusMeninggal}"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End table provinsi -->
+		
+		<!-- Table Data Global -->
+		<section id="dataGlobal">
+			<div class="card mb-5 bg-dark text-white">
+				<div class="card-header">
+					<h5>Daftar Data Global</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-wrapper-scroll-y my-custom-scrollbar">
+						<table class="table table-bordered table-striped table-dark mb-0"
+							width="100%" cellspacing="0">
+							<tr>
+								<th>No.</th>
+								<th>Negara</th>
+								<th>Kasus Positif</th>
+								<th>Kasus Sembuh</th>
+								<th>Kasus Meninggal</th>
+							</tr>
+							<tr th:each="global, i: ${globalData}">
+								<td th:text="${i.count}" />
+								<td th:text="${global.countryName}"></td>
+								<td th:text="${global.confirmCase}"></td>
+								<td th:text="${global.recovery}"></td>
+								<td th:text="${global.death}"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Table data global -->
+		
+	</div>
+	
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center text-white">
+			<div class="row">
+				<div class="col-sm-12">
+					<p>Copyright &copy; 2021 | Made with <i class="text-warning fas fa-smile"></i> by. Syahrul Ramadhan</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+		
+
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+</html>

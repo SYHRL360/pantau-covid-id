@@ -12,6 +12,11 @@ public class CoronaIndonesia {
 	
 	private String dirawat;
 
+	
+	public CoronaIndonesia() {
+	
+	}
+	
 	public String getName() {
 		return name;
 	}
