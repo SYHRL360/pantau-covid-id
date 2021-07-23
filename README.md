@@ -1,11 +1,13 @@
 # Pantau Covid
-
+![home_page](https://user-images.githubusercontent.com/81602971/123670840-d4e5e780-d867-11eb-996f-42052bd33825.PNG)
 
 Deskripsi
 ---------------------------------------------------------------------------------------
 Pantau Covid adalah aplikasi Web yang menampilkan data total kasus COVID-19 di Indonesia dan kasus di negara lainnya.
 
 Aplikasi Web ini memanfaatkan API dari https://kawalcorona.com/api dan untuk memanggil datanya ke dalam halaman web menggunakan [Spring REST Tamplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) untuk memanggil API.
+
+![rest_template](https://user-images.githubusercontent.com/81602971/123670919-ecbd6b80-d867-11eb-9ae3-062d13a20f77.png)
 
 Demo
 ---------------------------------------------------------------------------------------
@@ -46,7 +48,17 @@ Setup
 
 Screen Shoot
 ---------------------------------------------------------------------------------------
+1. Data Kasus di Indonesia
+![total_kasus_indonesia](https://user-images.githubusercontent.com/81602971/123671789-db289380-d868-11eb-87b0-f4af26f11169.PNG)
+
+2. Data seluruh Provinsi
+![data_provinsi](https://user-images.githubusercontent.com/81602971/123671924-014e3380-d869-11eb-998b-e7d88c74dd41.PNG)
+
+3. Data Global
+![data_global](https://user-images.githubusercontent.com/81602971/123672010-14f99a00-d869-11eb-85be-dea7d92a5414.PNG)
 
 
-
+License
+---------------------------------------------------------------------------------------
+[MIT License](https://opensource.org/licenses/MIT)
 
