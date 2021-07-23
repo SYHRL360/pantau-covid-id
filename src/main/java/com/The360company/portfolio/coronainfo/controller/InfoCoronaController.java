@@ -1,6 +1,8 @@
 package com.The360company.portfolio.coronainfo.controller;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -36,9 +38,14 @@ public class InfoCoronaController {
 		List<GlobalData> globalData = infoCoronaService.getGlobalData();
 		
 		//  get current date and time
+		Instant nowUtc = Instant.now();
+		ZoneId asiaJakarta = ZoneId.of("Asia/Jakarta");
+		
+		ZonedDateTime nowAsiaJakarta = ZonedDateTime.ofInstant(nowUtc, asiaJakarta);
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMMM-uuuu HH:mm");
-		LocalDateTime now = LocalDateTime.now();
-		String currentDateTime = dtf.format(now);
+		
+		String currentDateTime = dtf.format(nowAsiaJakarta);
 		
 		// add the list province to the model
 		model.addAttribute("listProvinsi", theProvinsi);
