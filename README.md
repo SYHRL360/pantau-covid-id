@@ -7,8 +7,6 @@ Pantau Covid adalah aplikasi Web yang menampilkan data total kasus COVID-19 di I
 
 Aplikasi Web ini memanfaatkan API dari https://kawalcorona.com/api dan untuk memanggil datanya ke dalam halaman web menggunakan [Spring REST Tamplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html) untuk memanggil API.
 
-![rest_template](https://user-images.githubusercontent.com/81602971/123670919-ecbd6b80-d867-11eb-9ae3-062d13a20f77.png)
-
 Demo
 ---------------------------------------------------------------------------------------
 klik untuk melihat demo 
